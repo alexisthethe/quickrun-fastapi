@@ -2,5 +2,4 @@ __pycache__
 .DS_Store
 .vscode
 .deta
-app/requirements.txt
 Pipfile.lock
