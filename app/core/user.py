@@ -2,7 +2,7 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
 from app import models, schemas
-from app.hashing import Hash
+from app.auth import Hash
 
 
 def get(id: int, db: Session):

@@ -4,8 +4,8 @@ from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
 from app import database, schemas
+from app.auth import get_current_user
 from app.core import blog
-from app.oauth2 import get_current_user
 
 router = APIRouter(tags=["blogs"], prefix="/blog")
 
