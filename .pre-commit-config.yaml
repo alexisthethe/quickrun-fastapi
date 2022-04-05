@@ -1,0 +1,55 @@
+repos:
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.5.2
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "--filter-files"]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-yaml
+      - id: debug-statements
+      - id: requirements-txt-fixer
+      - id: detect-private-key
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        additional_dependencies: [flake8-print]
+        args:
+          - "--ignore=E501"
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.931
+    hooks:
+      - id: mypy
+        language_version: python3
+        args:
+          - --no-warn-unused-ignores
+        additional_dependencies:
+          - pytest==7.0.0
+          - pytest-mock==3.7.0
+          - requests==2.27.1
+          - responses==0.18.0
+          - types-PyYAML
+          - types-requests
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.4.2
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-use-type-annotations
+
+  - repo: https://github.com/ambv/black
+    rev: 19.10b0
+    hooks:
+      - id: black

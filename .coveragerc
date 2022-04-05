@@ -1,0 +1,11 @@
+[run]
+branch = True
+relative_files = True
+omit =
+    */__init__.py
+    */tests/*
+
+[reports]
+omit =
+    */__init__.py
+    */tests/*

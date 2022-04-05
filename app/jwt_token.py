@@ -1,9 +1,10 @@
 from datetime import datetime, timedelta
 from http.client import HTTPException
-from jose import jwt, JWTError
 from typing import Optional
-from blog import schemas
 
+from jose import JWTError, jwt
+
+from app import schemas
 
 SECRET_KEY = "secret-change-me"
 ALGORITHM = "HS256"

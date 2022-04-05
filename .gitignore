@@ -2,4 +2,6 @@ __pycache__
 .DS_Store
 .vscode
 .deta
-Pipfile.lock
+requirements.txt
+openapi.yaml
+/poetry.lock
