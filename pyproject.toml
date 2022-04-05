@@ -6,6 +6,7 @@ version = "0.1.0"
 
 [tool.poetry.dependencies]
 SQLAlchemy = "^1.4.34"
+alembic = "^1.7.7"
 fastapi = "^0.75.1"
 passlib = "^1.7.4"
 python = "^3.9"
@@ -17,10 +18,10 @@ uvicorn = "^0.17.6"
 PyYAML = "^6.0"
 black = "^22.3.0"
 flake8 = "^4.0.1"
+ipython = "^8.2.0"
 poethepoet = "^0.13.1"
 pytest = "^7.1.1"
 pytest-cov = "^3.0.0"
-ipython = "^8.2.0"
 
 [tool.poe.tasks.start-api]
 envfile = ".env.dev"
@@ -37,6 +38,10 @@ docker-run = "docker run -ti --rm -p 8000:80 --env-file .env.dev quickrun-fastap
 lint = "flake8 app tests"
 spec = {script = "app.commands:generate_spec_yaml()"}
 test = "pytest -v --cov=./app --cov-report=term-missing tests"
+
+[tool.poe.tasks.alembic-autogen]
+args = ["name"]
+cmd = "alembic revision --autogenerate -m '$name'"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"

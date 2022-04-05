@@ -1,12 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app import models
 from app.config import settings
-from app.database import engine
+from app.migration import run_upgrade
 from app.routers import auth, blog, user
 
-models.Base.metadata.create_all(engine)
+run_upgrade()
 
 app = FastAPI(debug=settings.DEBUG)
 
